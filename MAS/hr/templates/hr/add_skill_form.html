@@ -1,0 +1,17 @@
+{% extends 'login/base.html' %}
+
+{% block content %}
+<br>
+<h2>Add Employee Skill</h2>
+<br>
+
+<div class="container">
+	<form method="post" class="form-group" id="addSkill" novalidate>
+	{% csrf_token %}
+	{{form.as_p}}
+	<input type="submit" value="Add">
+	</form>
+</div>
+
+
+{% endblock %}

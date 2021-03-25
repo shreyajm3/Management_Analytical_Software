@@ -1,0 +1,15 @@
+{% extends 'login/base.html' %}
+
+{% block content %}
+<br>
+<h2> Employee Skill Chart</h2>
+<br>
+
+<div class="container">
+   {% if graph %}
+    {{ graph|safe }}
+    {% endif %}
+</div>
+
+
+{% endblock %}

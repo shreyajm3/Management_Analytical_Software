@@ -1,17 +1,192 @@
-{% extends 'login/base.html' %}
+<!DOCTYPE html>
+<html lang="en">
 
-{% block content %}
-<br>
-<h2>Add Employee Skill</h2>
-<br>
+    <head>
+        <meta charset="utf-8" />
+        <title>Add Skill</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta content="Connecting you to the best doctors around the world" name="description" />
+        <meta content="" name="author" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-<div class="container">
-	<form method="post" class="form-group" id="addSkill" novalidate>
-	{% csrf_token %}
-	{{form.as_p}}
-	<input type="submit" value="Add">
-	</form>
-</div>
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="assets/images/favicon.ico">
+
+        <!-- jvectormap -->
+        <link href="plugins/jvectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet">
+
+        <!-- App css -->
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/jquery-ui.min.css" rel="stylesheet">
+        <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/metisMenu.min.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/app.min.css" rel="stylesheet" type="text/css" />
+
+	</head>
+	<body>
+		 <!-- Top Bar Start -->
+         <div class="topbar">
+
+            <!-- LOGO -->
+            <div class="topbar-left">
+                <a href="dashboard.html" class="logo">
+                    <!--span>
+                        <img src="assets/images/logo-sm.png" alt="logo-small" class="logo-sm">
+                    </span-->
+                    <a href="dashboard/analytics-index.html" class="logo logo-admin"><img src="assets/images/logo-sm.png" height="55" alt="logo" class="auth-logo"></a>
+                </a>
+            </div>
+            <!--end logo-->
+            <!-- Navbar -->
+            <nav class="navbar-custom">    
+                <ul class="list-unstyled topbar-nav float-right mb-0"> 
+                    
+
+                    <li class="dropdown notification-list">
+                        <!--Languages to be commented until further notice - Tanooj Mehra-->
+                        <a href="chat.html"class="nav-link dropdown-toggle arrow-none waves-light waves-effect" role="button" aria-haspopup="false" aria-expanded="false">
+                            <i class="mdi mdi-chat"></i>
+                            <span class="badge badge-warning badge-pill noti-icon-badge">2</span>
+                        </a>
+                        
+                    </li>
+
+                    <!-- Profile Dropdown -->
+                    <li class="dropdown">
+                        <a class="nav-link dropdown-toggle waves-effect waves-light nav-user" data-toggle="dropdown" href="#" role="button"
+                            aria-haspopup="false" aria-expanded="false">
+                            <img src="assets/images/users/user-1.png" alt="profile-user" class="rounded-circle" /> 
+                            <span class="ml-1 nav-user-name hidden-sm">John Doe<i class="mdi mdi-chevron-down"></i> </span>
+                        </a>
+                        
+                    </li>
+                    <!-- End of Profile Dropdown -->
+
+                </ul><!--end topbar-nav-->
+    
+                <ul class="list-unstyled topbar-nav mb-0">                        
+                    <li>
+                        <button class="nav-link button-menu-mobile waves-effect waves-light">
+                            <i class="ti-menu nav-icon"></i>
+                        </button>
+                    </li>
+                    <li class="hide-phone app-search">
+                        <form role="search" class="">
+                            <input type="text" id="AllCompo" placeholder="Search..." class="form-control">
+                            <a href=""><i class="fas fa-search"></i></a>
+                        </form>
+                    </li>
+                </ul>
+            </nav>
+            <!-- end navbar-->
+        </div>
+		<!-- Top Bar End -->
+		<!-- Left Sidenav -->
+        <div class="left-sidenav">
+            <ul class="metismenu left-sidenav-menu">
+                <li>
+                    <a href="dashboard.html"><i class="ti-bar-chart"></i><span>Dashboard</span></a>
+                    
+                </li>
+
+                <li>
+                    <a href="finance.html"><i class="ti-server"></i><span>Finance</span><span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
+                    <ul class="nav-second-level" aria-expanded="false">
+                        
+                    </ul>
+                </li>                 
+
+                <li>    
+                    <a href="hr.html"><i class="ti-crown"></i><span>Human Resource</span><span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
+                    <ul class="nav-second-level" aria-expanded="false">
+                        <li>
+                            <a href="javascript: void(0);"><i class="ti-control-record"></i>View Employee List</a>
+                        </li>  
+                        <li>
+                            <a href="javascript: void(0);"><i class="ti-control-record"></i>Sentiment Analysis</a>
+                        </li> 
+                          
+                    </ul>                        
+                </li>
+
+                <li>
+                    <a href="marketing.html"><i class="ti-layers-alt"></i><span>Marketing</span><span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
+                    
+                </li>
+                <li>   
+                    <a href="operations.html"><i class="ti-crown"></i><span>Operations</span><span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
+                     
+                </li>
+
+            </ul>
+        </div>
+		<!-- end left-sidenav-->
+		
+		<div class="page-wrapper">
+			<!-- Page Content-->
+            <div class="page-content">
+				<div class="container-fluid">
+					<!-- Page-Title -->
+					<div class="row">
+                        <div class="col-sm-12">
+                            <div class="page-title-box">
+                                <div class="float-right">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item"><a href="dashboard.html">Dashboard</a></li>
+                                        <li class="breadcrumb-item"><a href="javascript:void(0);">Human Resource</a></li>
+                                        <li class="breadcrumb-item active">Add Skill</a></li>
+                                    </ol>
+                                </div>
+                                <h4 class="page-title">Add Empolyee Skill</h4>
+                            </div><!--end page-title-box-->
+                        </div><!--end col-->
+                    </div>
+					<!-- end page title end breadcrumb -->
+
+					<div class="row justify-content-center">
+						<div class="col-md-12 col-lg-12">
+                            <div class="card report-card">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between">
+                                        {% extends 'login/base.html' %}
+
+										{% block content %}
+
+										<div class="container">
+											<form method="post" class="form-group" id="addSkill" novalidate>
+											{% csrf_token %}
+											{{form.as_p}}
+											<input type="submit" value="Add">
+											</form>
+										</div>
 
 
-{% endblock %}
+										{% endblock %}
+                                    </div>
+                                </div><!--end card-body--> 
+                            </div><!--end card--> 
+                        </div> <!--end col--> 
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- jQuery  -->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/js/metismenu.min.js"></script>
+        <script src="assets/js/waves.js"></script>
+        <script src="assets/js/feather.min.js"></script>
+        <script src="assets/js/jquery.slimscroll.min.js"></script>
+        <script src="assets/js/jquery-ui.min.js"></script>
+
+        <script src="plugins/apexcharts/apexcharts.min.js"></script>
+        <script src="plugins/moment/moment.js"></script>
+        <script src="plugins/jvectormap/jquery-jvectormap-2.0.2.min.js"></script>
+        <script src="plugins/jvectormap/jquery-jvectormap-us-aea-en.js"></script>
+        <script src="assets/pages/jquery.analytics_dashboard.init.js"></script>
+
+        <!-- App js -->
+		<script src="assets/js/app.js"></script>
+		
+	</body>
+</html>
